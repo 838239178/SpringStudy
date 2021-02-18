@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -29,5 +28,6 @@ public class UserServiceImplTest {
     public void test2() {
         System.out.println(jdbcTemplate);
         System.out.println(jdbcTemplate.getDataSource());
+        jdbcTemplate.update("insert into dbo.account values ('jdbc', 'soeasy')");
     }
 }

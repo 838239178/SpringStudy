@@ -13,16 +13,16 @@ import java.util.ResourceBundle;
 
 @PropertySource("classpath:jdbc.properties")//加载配置文件
 public class DataSourceConfiguration {
-    @Value("jdbc.driver")
+    @Value("${jdbc.driver}")
     private String driverName;
 
-    @Value("jdbc.url")
+    @Value("${jdbc.url}")
     private String jdbcUrl;
 
-    @Value("jdbc.usr")
+    @Value("${jdbc.usr}")
     private String user;
 
-    @Value("jdbc.pwd")
+    @Value("${jdbc.pwd}")
     private String password;
 
     @Bean("dataSource")
