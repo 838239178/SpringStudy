@@ -1,13 +1,17 @@
 package cn.demo.service.impl;
 
+import cn.demo.bean.Account;
 import cn.demo.config.SpringConfiguration;
 import cn.demo.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringConfiguration.class})
@@ -29,5 +33,11 @@ public class UserServiceImplTest {
         System.out.println(jdbcTemplate);
         System.out.println(jdbcTemplate.getDataSource());
         jdbcTemplate.update("insert into dbo.account values ('jdbc', 'soeasy')");
+    }
+
+    @Test
+    public void test3() {
+        List<Account> beans = jdbcTemplate.query("select * from account", new BeanPropertyRowMapper<>(Account.class));
+        System.out.println(beans);
     }
 }

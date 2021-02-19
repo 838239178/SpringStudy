@@ -4,10 +4,8 @@ import cn.demo.dao.UserDao;
 import cn.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
