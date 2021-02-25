@@ -3,10 +3,11 @@ package cn.demo.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-public class JdbcConfiguration {
+public class JdbcTemplateConfiguration {
 
     @Autowired
     private DataSource ds;

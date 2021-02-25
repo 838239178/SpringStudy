@@ -1,22 +1,16 @@
 package cn.demo.aop;
-
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
-@Aspect
 @Component
-public class MyAspect {
+@Aspect
+public class MyAspect implements Ordered {
+
     @Pointcut("execution(* cn.demo.service.impl.*.*(..))")
     public void pointCut() {}
-
-    @Before("MyAspect.pointCut()")
-    public void before() {
-        System.out.println("before advice");
-    }
 
     @Around("MyAspect.pointCut()")
     public Object around(ProceedingJoinPoint joinPoint) {
@@ -29,5 +23,13 @@ public class MyAspect {
         }
         System.out.println("around 2");
         return proceed;
+       }
+
+    @Value("${order.myAspect}")
+    private int order;
+
+    @Override
+    public int getOrder() {
+        return this.order;
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;;
 
 import java.util.List;
 
@@ -39,5 +39,10 @@ public class UserServiceImplTest {
     public void test3() {
         List<Account> beans = jdbcTemplate.query("select * from account", new BeanPropertyRowMapper<>(Account.class));
         System.out.println(beans);
+    }
+
+    @Test
+    public void test4() {
+        userService.transfer("zhangsan", "wangwu", 500);
     }
 }
