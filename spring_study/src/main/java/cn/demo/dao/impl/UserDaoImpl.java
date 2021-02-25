@@ -31,4 +31,9 @@ public class UserDaoImpl implements UserDao {
         jdbcTemplate.update("update account set money = money+? where usrname = ?", money, name);
     }
 
+    @Override
+    public String getPassword(String usrname) {
+        Object[] args = {usrname};
+        return jdbcTemplate.queryForObject("select pwd from account where usrname = ?", args, String.class);
+    }
 }

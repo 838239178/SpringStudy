@@ -8,4 +8,5 @@ public interface UserDao {
     List<Account> run();
     void send(String name, int money);
     void receive(String name, int money);
+    String getPassword(String usrname);
 }

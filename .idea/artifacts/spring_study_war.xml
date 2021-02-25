@@ -9,12 +9,6 @@
     </properties>
     <root id="archive" name="spring_study.war">
       <element id="artifact" artifact-name="spring_study:war exploded" />
-      <element id="javaee-facet-resources" facet="spring_study/web/WebApplication" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="module-output" name="spring_study" />
-        </element>
-      </element>
     </root>
   </artifact>
 </component>

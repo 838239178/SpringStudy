@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService {
         userDao.receive(inMan, money);
     }
 
+    @Override
+    public Boolean login(String usrname, String pwd) {
+        return pwd.equals(userDao.getPassword(usrname));
+    }
+
     @PostConstruct
     public void init() {
         System.out.println("init service");

@@ -1,4 +1,5 @@
 package cn.demo.aop;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +11,8 @@ import org.springframework.stereotype.Component;
 public class MyAspect implements Ordered {
 
     @Pointcut("execution(* cn.demo.service.impl.*.*(..))")
-    public void pointCut() {}
+    public void pointCut() {
+    }
 
     @Around("MyAspect.pointCut()")
     public Object around(ProceedingJoinPoint joinPoint) {
@@ -23,7 +25,7 @@ public class MyAspect implements Ordered {
         }
         System.out.println("around 2");
         return proceed;
-       }
+    }
 
     @Value("${order.myAspect}")
     private int order;

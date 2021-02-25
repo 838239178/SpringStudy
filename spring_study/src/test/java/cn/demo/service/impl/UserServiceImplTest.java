@@ -3,13 +3,14 @@ package cn.demo.service.impl;
 import cn.demo.bean.Account;
 import cn.demo.config.SpringConfiguration;
 import cn.demo.service.UserService;
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class UserServiceImplTest {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    public void test1(){
+    public void test1() {
         userService.run();
     }
 
@@ -32,7 +33,7 @@ public class UserServiceImplTest {
     public void test2() {
         System.out.println(jdbcTemplate);
         System.out.println(jdbcTemplate.getDataSource());
-        jdbcTemplate.update("insert into dbo.account values ('jdbc', 'soeasy')");
+        jdbcTemplate.update("insert into dbo.account values ('jdbc', 'soeasy', '1000')");
     }
 
     @Test
