@@ -1,5 +1,6 @@
-package cn.demo.controller;
+package cn.demo.web;
 import cn.demo.service.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/login")
+@Controller
 public class UserServlet extends HttpServlet {
 
 //    @Autowired
