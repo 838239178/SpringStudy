@@ -9,9 +9,10 @@ public class Account {
     private int id;
     private String usrname;
     private String pwd;
+    private int money;
 
     public Account() {
-        id = -1;
+        id = money = -1;
         usrname = pwd = "";
     }
 
@@ -25,6 +26,15 @@ public class Account {
     }
 
     //region getter/setter
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     public int getId() {
         return id;
     }

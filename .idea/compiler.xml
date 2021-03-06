@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AjcSettings">
+    <option name="ajcPath" value="$PROJECT_DIR$/../../m2repository/aspectj/aspectjtools/1.5.2a/aspectjtools-1.5.2a.jar" />
+    <option name="cmdLineParams" value="-showWeaveInfo" />
+    <option name="delegateToJavac" value="true" />
+  </component>
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
@@ -12,6 +17,7 @@
     <bytecodeTargetLevel target="14">
       <module name="spring_study" target="8" />
       <module name="spring_webapp" target="1.5" />
+      <module name="springdemo" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

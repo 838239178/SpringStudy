@@ -12,5 +12,15 @@
     </head>
     <body>
         hello world
+        <div>
+            <form method="get" action="hello.jsp">
+                hello.jsp<input type="submit">
+            </form>
+        </div>
+        <div>
+            <form method="get" action="testdb.jsp">
+                testdb.jsp<input type="submit">
+            </form>
+        </div>
     </body>
 </html>

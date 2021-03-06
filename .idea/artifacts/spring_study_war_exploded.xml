@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="spring_study:war exploded">
-    <output-path>$PROJECT_DIR$/../../tomcat/webapps/spring</output-path>
+    <output-path>$PROJECT_DIR$/spring_study/target/spring_study</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -32,6 +32,8 @@
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.12.RELEASE" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.73" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.4" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.5" />
         </element>
       </element>
       <element id="directory" name="META-INF">

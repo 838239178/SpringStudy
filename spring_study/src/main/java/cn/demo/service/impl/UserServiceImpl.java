@@ -36,7 +36,12 @@ public class UserServiceImpl implements UserService {
         return pwd.equals(userDao.getPassword(usrname));
     }
 
-//    @PostConstruct
+    @Override
+    public Account getUserData(String usrname) {
+        return userDao.getUserData(usrname).get(0);
+    }
+
+    //    @PostConstruct
 //    public void init() {
 //        System.out.println("init service");
 //    }

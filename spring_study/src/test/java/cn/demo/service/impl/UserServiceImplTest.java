@@ -2,6 +2,8 @@ package cn.demo.service.impl;
 
 import cn.demo.bean.Account;
 import cn.demo.config.SpringConfiguration;
+import cn.demo.config.mvc.MvcConfiguration;
+import cn.demo.config.mvc.WebConfiguration;
 import cn.demo.service.UserService;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
@@ -11,11 +13,13 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {SpringConfiguration.class})
+@WebAppConfiguration
+@ContextConfiguration(classes = {SpringConfiguration.class, MvcConfiguration.class, WebConfiguration.class})
 public class UserServiceImplTest {
 
     @Autowired

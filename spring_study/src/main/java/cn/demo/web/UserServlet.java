@@ -10,12 +10,9 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/login")
-@Controller
+//@WebServlet("/login")
+//@Controller
 public class UserServlet extends HttpServlet {
-
-//    @Autowired
-//    private WebApplicationContext context;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

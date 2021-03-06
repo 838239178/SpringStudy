@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/spring_study" />
+    <file type="web" url="file://$PROJECT_DIR$/springdemo" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

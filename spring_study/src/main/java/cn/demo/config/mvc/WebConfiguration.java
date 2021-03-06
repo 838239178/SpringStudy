@@ -1,7 +1,13 @@
 package cn.demo.config.mvc;
 
 import cn.demo.config.SpringConfiguration;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
+import java.nio.charset.StandardCharsets;
 
 public class WebConfiguration extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -28,4 +34,16 @@ public class WebConfiguration extends AbstractAnnotationConfigDispatcherServletI
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
+    /**
+     * 配置过滤器<br/>
+     *
+     */
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{
+                new CharacterEncodingFilter("UTF-8"),
+        };
+    }
+
 }
