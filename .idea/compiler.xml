@@ -12,12 +12,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_study" />
+        <module name="mybatis_study" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="14">
+    <bytecodeTargetLevel target="8">
+      <module name="mybatis_study" target="1.8" />
       <module name="spring_study" target="8" />
-      <module name="spring_webapp" target="1.5" />
-      <module name="springdemo" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
