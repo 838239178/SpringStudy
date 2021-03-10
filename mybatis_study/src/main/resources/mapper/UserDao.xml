@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.domain.UserDao">
+  <resultMap id="BaseResultMap" type="cn.demo.domain.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phoneNum" jdbcType="VARCHAR" property="phonenum" />
+    <collection property="orderList" ofType="cn.demo.domain.Order">
+      <id column="oid" property="id"/>
+      <result column="add_time" property="addTime"/>
+      <result column="detail" property="detail"/>
+    </collection>
+    <collection property="roleList" ofType="cn.demo.domain.Role">
+      <id column="rid" property="id"/>
+      <result column="roleName" property="rolename"/>
+      <result column="roleDesc" property="roledesc"/>
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List">
+
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select users.id, users.userName, users.email, users.phoneNum,
+           dbo.orders.id oid, dbo.orders.add_time, dbo.orders.detail,
+           dbo.roles.id rid, dbo.roles.roleName, dbo.roles.roleDesc
+    from users, orders, roles, role_user
+    where users.id = #{id} and
+          orders.uid = users.id and
+          role_user.userId = users.id and
+          role_user.roleId = roles.id
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from users
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.demo.domain.User" useGeneratedKeys="true">
+    insert into users (userName, email, "password", 
+      phoneNum)
+    values (#{username,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phonenum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.demo.domain.User" useGeneratedKeys="true">
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="password != null">
+        "password",
+      </if>
+      <if test="phonenum != null">
+        phoneNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.demo.domain.User">
+    update users
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        "password" = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null">
+        phoneNum = #{phonenum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.demo.domain.User">
+    update users
+    set userName = #{username,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      "password" = #{password,jdbcType=VARCHAR},
+      phoneNum = #{phonenum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
