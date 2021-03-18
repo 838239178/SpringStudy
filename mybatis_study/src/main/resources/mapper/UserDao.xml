@@ -6,11 +6,13 @@
     <result column="userName" jdbcType="VARCHAR" property="username" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="phoneNum" jdbcType="VARCHAR" property="phonenum" />
+    <!--一对多-->
     <collection property="orderList" ofType="cn.demo.domain.Order">
       <id column="oid" property="id"/>
       <result column="add_time" property="addTime"/>
       <result column="detail" property="detail"/>
     </collection>
+    <!--多对多-->
     <collection property="roleList" ofType="cn.demo.domain.Role">
       <id column="rid" property="id"/>
       <result column="roleName" property="rolename"/>
@@ -20,6 +22,7 @@
   <sql id="Base_Column_List">
 
   </sql>
+  <!--一对多+多对多查询-->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select users.id, users.userName, users.email, users.phoneNum,
            dbo.orders.id oid, dbo.orders.add_time, dbo.orders.detail,

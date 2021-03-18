@@ -1,0 +1,15 @@
+#spring:
+#  profiles:
+#    active: [name1, name2]
+server:
+  port: 80
+  servlet:
+    encoding:
+      charset: UTF-8
+
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;database=xscj
+    password: sa
+    username: sa

@@ -3,6 +3,7 @@ import cn.demo.domain.OrderDao;
 import cn.demo.domain.User;
 import cn.demo.domain.UserDao;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -37,6 +38,11 @@ public class test {
         UserDao dao = session.getMapper(UserDao.class);
         User user = dao.selectByPrimaryKey(1);
         System.out.println(user);
+    }
+
+    @Test
+    public void test3() throws Exception {
+
     }
 
     @After

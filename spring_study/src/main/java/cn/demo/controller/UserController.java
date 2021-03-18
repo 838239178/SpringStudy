@@ -4,6 +4,7 @@ import cn.demo.bean.Account;
 import cn.demo.service.UserService;
 import com.alibaba.fastjson.support.spring.FastJsonJsonView;
 import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

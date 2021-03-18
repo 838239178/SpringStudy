@@ -4,6 +4,7 @@ import cn.demo.bean.Account;
 import cn.demo.config.SpringConfiguration;
 import cn.demo.config.mvc.MvcConfiguration;
 import cn.demo.config.mvc.WebConfiguration;
+import cn.demo.mapper.UserMapper;
 import cn.demo.service.UserService;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
@@ -24,6 +25,9 @@ public class UserServiceImplTest {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -49,5 +53,11 @@ public class UserServiceImplTest {
     @Test
     public void test4() {
         userService.transfer("zhangsan", "wangwu", 500);
+    }
+
+    @Test
+    public void test5() throws Exception {
+        List<Account> list = userMapper.getUserData("zhangsan");
+        System.out.println(list);
     }
 }

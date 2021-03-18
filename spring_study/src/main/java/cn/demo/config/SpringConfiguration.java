@@ -1,5 +1,8 @@
 package cn.demo.config;
 
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -19,6 +22,7 @@ import javax.sql.DataSource;
 //如果事务控制需要和 与环绕绕通知 一起使用的话，order要比他们大！ order越小优先级越高
 @EnableTransactionManagement
 @PropertySource("classpath:aspectOrder.properties")
+@MapperScan(basePackages = "cn.demo.mapper")
 //设置扫描注解的包, 排除controller包
 @ComponentScan(
         basePackages = "cn.demo",
@@ -36,5 +40,13 @@ public class SpringConfiguration {
     @Autowired
     public PlatformTransactionManager txManager(DataSource ds) {
         return new DataSourceTransactionManager(ds);
+    }
+
+    @Bean
+    @Autowired
+    public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource ds){
+        SqlSessionFactoryBean ssf = new SqlSessionFactoryBean();
+        ssf.setDataSource(ds);
+        return ssf;
     }
 }

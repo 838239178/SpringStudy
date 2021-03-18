@@ -5,7 +5,7 @@
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://localhost:1433;database=company</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;database=testbase</jdbc-url>
     </data-source>
   </component>
 </project>
