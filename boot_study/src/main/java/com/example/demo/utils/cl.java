@@ -1,6 +1,6 @@
 package com.example.demo.utils;
 
-import com.sun.istack.internal.NotNull;
+import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import java.util.List;
 public class cl {
 
     @SafeVarargs
-    public static <T> List<T> list(@NotNull T... item){
+    public static <T> List<T> list(@NonNull T... item){
         ArrayList<T> array = new ArrayList<>(item.length);
         Collections.addAll(array, item);
         return array;
